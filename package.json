@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-api-perf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "express": "node express.js",
+    "express:watch": "node --watch express.js",
+    "node": "node node.js",
+    "node:watch": "node --watch node.js",
+    "bun": "bun run bun.ts",
+    "bun:watch": "bun run --watch bun.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bun": "^1.0.8",
+    "express": "^4.18.3",
+    "hono": "^4.0.9"
+  }
+}
