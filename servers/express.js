@@ -22,7 +22,7 @@ app.get('/api/users-300', (_, response) => {
 })
 
 app.get('/api/users-300-c', (_, response) => {
-  response.status(200).json(users300)
+  response.status(200).send(users300)
 })
 
 app.listen(3002, () => void 

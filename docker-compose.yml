@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  l7lb:
+    image: nginx:latest
+    volumes:
+      - ./configs/nginx.l7lb.conf:/etc/nginx/nginx.conf
+    ports:
+      - "3010:3000"
+
+  l4lb:
+    image: nginx:latest
+    volumes:
+      - ./configs/nginx.l4lb.conf:/etc/nginx/nginx.conf
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
+
+  bun:
+    build:
+      context: .
+      dockerfile: bun.Dockerfile
+    deploy:
+      replicas: 4
+    restart: unless-stopped
+
+
+  node:
+    build:
+      context: .
+      dockerfile: node.Dockerfile
+    deploy:
+      replicas: 4
+    restart: unless-stopped
+
+  express:
+    build:
+      context: .
+      dockerfile: express.Dockerfile
+    deploy:
+      replicas: 4
+    restart: unless-stopped
