@@ -2,9 +2,7 @@ const http = require('http')
 const fs = require('fs')
 
 const users300 = fs.readFileSync('./users-300.json', 'utf-8')
-const now = Date.now()
 const app = http.createServer((request, response) => {
-  console.log(now)
   if (request.url === '/') {
     response.writeHead(200, { 'Content-Type': 'text/html' })
     response.end('Ok')
